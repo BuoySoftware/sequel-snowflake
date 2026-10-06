@@ -33,6 +33,13 @@ After installing, you may need to configure `simba.snowflake.ini` and set
 unixODBC was built specifically with the `DSQL_WCHART_CONVERT` flag, then
 Snowflake's default of "UTF-32" is fine as-is.
 
+For macOS Homebrew ODBC installations, prior to running `bundle install`', you may need to provide
+a directive as to where the ODBC libraries are located.  Example:
+
+```
+bundle config set build.ruby-odbc --with-odbc-dir=/opt/homebrew/Cellar/unixodbc/2.3.14
+```
+
 ## Usage
 
 When establishing the connection, specify `:snowflake` as the adapter to use.
