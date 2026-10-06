@@ -1,0 +1,45 @@
+version: 2
+updates:
+  - package-ecosystem: bundler
+    directory: "/"
+    insecure-external-code-execution: allow
+    registries: "*"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "02:00"
+      timezone: "America/New_York"
+    cooldown:
+      default-days: 5
+    open-pull-requests-limit: 99
+    groups:
+      bundler-version-updates:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+      bundler-security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "02:00"
+    cooldown:
+      default-days: 5
+    groups:
+      github-actions-version-updates:
+        applies-to: version-updates
+        patterns:
+          - "*"
+      github-actions-security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
