@@ -24,7 +24,7 @@ jobs:
         ruby-version: ['3.3', '3.4']
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v7
     - name: Update package lists
       run: sudo apt-get update
     - name: Install unixodbc-dev, odbcinst, and unixodbc
